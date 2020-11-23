@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { calc } from "../helpers";
-const Form = ({ amount, setAmount, term, setTerm }) => {
+const Form = (props) => {
+  const { amount, setAmount, term, setTerm, setTotal, setLoading } = props;
   const [error, setError] = useState(false);
   const onSubmitForm = (e) => {
     e.preventDefault();
@@ -10,8 +11,12 @@ const Form = ({ amount, setAmount, term, setTerm }) => {
       return;
     }
     setError(false);
-    const finalAccount = calc(amount, term);
-    console.log(finalAccount);
+    setLoading(true);
+    setTimeout(() => {
+      const finalAccount = calc(amount, term);
+      setTotal(finalAccount);
+      setLoading(false);
+    }, 3000);
   };
   return (
     <>
