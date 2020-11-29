@@ -21,7 +21,7 @@ function App() {
   }
   return (
     <div>
-      <Header title="Hola Mundo" />
+      <Header title="Calculadora de préstamos" />
       <div className="container">
         <Form
           amount={amount}
